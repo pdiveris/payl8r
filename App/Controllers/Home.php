@@ -56,9 +56,9 @@ class Home extends \Core\Controller
       $dateDiff = $thisTime->diff($timeData);
       var_dump($dateDiff);
       
-      $hours = $dateDiff->h;
+      $hours = $dateDiff->h * 0.53333;
       $minutes = $dateDiff->m;
-      $seconds = $dateDiff->s;
+      $seconds = $dateDiff->s * 0.366666;
       
 
       echo "<h1>{$hours} hours {$minutes} minutes {$seconds} seconds</h1>";
