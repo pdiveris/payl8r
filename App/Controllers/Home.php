@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use \Core\View;
-
 /**
  * Home controller
  *
@@ -11,15 +10,61 @@ use \Core\View;
  */
 class Home extends \Core\Controller
 {
-
-    /**
+    static $redis;
+    
+    public function __construct(array $route_params)
+    {
+      /*
+      parent::__construct($route_params);
+      self::$redis = new Redis();
+      self::$redis->connect('127.0.0.1');
+      */
+    }
+  
+  /**
      * Show the index page
      *
      * @return void
      */
     public function indexAction()
     {
-        View::renderTemplate('Home/index.html');
+      
+      // 60 = 22
+      // 3600 = 1920
+      
+      
+      // 1. Get a cache
+      $redis = new \Predis\Client();
+      
+      // try to get.
+      $timeData = $redis->get("timeData");
+      
+      if (null == $timeData) {
+        $timeData = new \DateTime();
+        $redis->set("timeData", serialize($timeData));
+        
+      } else {
+        $timeData = unserialize($timeData);
+      }
+      
+      $thisTime = new \DateTime();
+  
+      var_dump($timeData);
+      var_dump($thisTime);
+  
+      
+      $dateDiff = $thisTime->diff($timeData);
+      var_dump($dateDiff);
+      
+      $hours = $dateDiff->h;
+      $minutes = $dateDiff->m;
+      $seconds = $dateDiff->s;
+      
+
+      echo "<h1>{$hours} hours {$minutes} minutes {$seconds} seconds</h1>";
+      
+      
+      ///  View::renderTemplate('Home/index.html');
     }
   
   /**
