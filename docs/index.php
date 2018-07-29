@@ -26,8 +26,8 @@
 
 // Add the routes
   $router->add('', ['controller' => 'Home', 'action' => 'index']);
-  $router->add('test', ['controller' => 'Home', 'action' => 'test']);
-  $router->add('flowers', ['controller' => 'Flowers', 'action' => 'bouquet']);
+  $router->add('/test', ['controller' => 'Home', 'action' => 'test']);
+  $router->add('/flowers', ['controller' => 'Flowers', 'action' => 'bouquet']);
 
 // $router->add('{controller}/{action}');
   

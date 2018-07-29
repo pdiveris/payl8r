@@ -93,19 +93,20 @@ class Router
     {
         return $this->params;
     }
-
-    /**
-     * Dispatch the route, creating the controller object and running the
-     * action method
-     *
-     * @param string $url The route URL
-     *
-     * @return void
-     */
+  
+  /**
+   * Dispatch the route, creating the controller object and running the
+   * action method
+   *
+   * @param string $url The route URL
+   *
+   * @return void
+   * @throws \Exception
+   */
     public function dispatch($url)
     {
         $url = $this->removeQueryStringVariables($url);
-
+        
         if ($this->match($url)) {
             $controller = $this->params['controller'];
             $controller = $this->convertToStudlyCaps($controller);
