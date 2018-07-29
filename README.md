@@ -17,5 +17,10 @@ Assuming that one will use the Docker image the steps should then be
 
 The site responds to the URL http://php-docker.local:8080/ which means that one extra step is required to set php-docker.local in your hosts file pointing to 127.0.0.1 - or the default index.html provided by nginx will show.
 
-I have tested this on a "blank" environment and to my amesement it run just fine, but I have not tested the whole thing thoroughly.
+I have tested this on a "blank" environment and to my amusement it run just fine, but I have not tested the whole thing thoroughly.
 
+In terms of testing, these routes should already respond:
+
+* http://php-docker.local:8080/
+* http://php-docker.local:8080/flowers
+* http://php-docker.local:8080/test
