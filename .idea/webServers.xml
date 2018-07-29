@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="00759411-537c-4ede-a0b5-44ea5f4fe389" name="pay" url="http://www.diveris.org">
+        <fileTransfer host="www.diveris.org" port="22" rootFolder="/home/apache/pay.diveris.org" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

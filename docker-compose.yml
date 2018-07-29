@@ -1,0 +1,19 @@
+web:
+    image: nginx:latest
+    ports:
+        - "8080:80"
+    volumes:
+        - ./docs:/docs
+        - ./site.conf:/etc/nginx/conf.d/site.conf
+        - ./vendor:/vendor
+        - ./App:/App
+        - ./Core:/Core
+    links:
+        - php
+php:
+    image: php:7-fpm
+    volumes:
+        - ./docs:/docs
+        - ./vendor:/vendor
+        - ./App:/App
+        - ./Core:/Core
