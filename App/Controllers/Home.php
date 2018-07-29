@@ -31,7 +31,7 @@ class Home extends \Core\Controller
       
       // 60 = 22
       // 3600 = 1920
-      
+      // 86400 = 19800
       
       // 1. Get a cache
       $redis = new \Predis\Client();
